@@ -1,0 +1,8 @@
+let Seneca = require('seneca')
+Seneca({tag: 'descriptor', legacy: {meta: true}, timeout: 5000})
+//  .use('zipkin-tracer', {host: 'zipkin', sampling: 1})
+//  .use('statsd', {host: 'stats'})
+  .use('entity')
+  .use('../descriptor.js')
+  .listen(8015)
+  .client({pin:'role:store', host:'store', port:8045})

@@ -1,0 +1,6 @@
+let Seneca = require('seneca')
+Seneca({tag: 'descriptor', timeout: 5000})
+  //.test('print')
+  .use('../descriptor.js')
+  .listen(8015)
+  .client({pin:'role:store', port:8045})
